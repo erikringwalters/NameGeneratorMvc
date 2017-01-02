@@ -9,6 +9,7 @@ namespace NameGenMvcApp
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        // comment
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
