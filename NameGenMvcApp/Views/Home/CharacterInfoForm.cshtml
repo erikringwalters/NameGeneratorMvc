@@ -31,11 +31,13 @@
             <p>
                 Sex:
 
-                <select id="Sex" name="Sex">
-                    <option value="">Pick your sex</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
+                @Html.DropDownListFor(x => x.Sex, new[]
+            {
+           new SelectListItem() {Text = "Male",
+           Value = "Male"},
+           new SelectListItem() { Text = "Female",
+           Value = "Female"}
+           }, "Pick your sex")
             </p>
 
             <input type="submit" value="Generate Name" />
