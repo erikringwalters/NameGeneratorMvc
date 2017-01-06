@@ -31,8 +31,7 @@ namespace NameGenMvcApp.Controllers
                 //userResponse.GeneratedName = "Name is generated for " + userResponse.Race + " " + userResponse.Sex;
 
                 var nameGenerator = new NameGenerator();
-                nameGenerator.writeGenericName(5);
-                userResponse.GeneratedName = nameGenerator.Name;
+                userResponse.GeneratedName = nameGenerator.getGenericName(10);
                 return View(userResponse);
             }
             else

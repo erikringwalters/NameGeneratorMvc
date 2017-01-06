@@ -8,7 +8,7 @@ namespace NameGenMvcApp.Models
     public class NameGenerator
     {
         enum gender { MALE, FEMALE, OTHER };
-        public string Name;
+        private string Name;
         Random rand = new Random();
         int Race;//decides style of name(orc, dragon, etc.)
         int Sex;//decides whether name is more masculine/feminine/other
@@ -36,7 +36,7 @@ namespace NameGenMvcApp.Models
             Sex = s;
         }
         //
-        public void writeGenericName(int size)
+        public string getGenericName(int size)
         {
 
             string tempName = "";
@@ -53,7 +53,7 @@ namespace NameGenMvcApp.Models
             {
                 Name += organizeCheck();
             }
-
+            return Name;
         }
         //
         public char randomVowel()
