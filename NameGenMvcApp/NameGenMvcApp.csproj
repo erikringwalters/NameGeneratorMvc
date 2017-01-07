@@ -138,6 +138,7 @@
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CharacterInfoForm.cshtml" />
+    <None Include="Properties\PublishProfiles\EriksNameGenerator1 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

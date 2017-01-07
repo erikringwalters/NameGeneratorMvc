@@ -36,7 +36,7 @@ namespace NameGenMvcApp.Models
             Sex = s;
         }
         //
-        public string getGenericName(int size)
+        public string getGenericName(int size, Sex sex, Race race)
         {
 
             string tempName = "";
@@ -45,7 +45,10 @@ namespace NameGenMvcApp.Models
             char charTemp;//for individual characters
             string stringTemp = "";//for several characters
 
+            if(sex == Models.Sex.Male)
+            {
 
+            }
 
             Name += firstLetter;//builds a name by piecing random characters together
             Name += randomVowel();
@@ -56,10 +59,26 @@ namespace NameGenMvcApp.Models
             return Name;
         }
         //
+        public string getGenericName(int size, Sex sex)
+        {
+            return getGenericName(size, sex, Models.Race.Other);
+        }
+        //
+        public string getGenericName(int size)
+        {
+            return getGenericName(size, Models.Sex.Other, Models.Race.Other);
+        }
+        //
+        public string getGenericName(int size, Race race)
+        {
+            return getGenericName(size, Models.Sex.Other, race);
+        }
+        //
         public char randomVowel()
         {
             return Vowel[rand.Next(0, 5)];
         }
+        //
         public char randomConsonant()
         {
             return Consonant[rand.Next(0,21)];
@@ -117,4 +136,7 @@ namespace NameGenMvcApp.Models
         }
         //
     }
+    public enum Race { Other, Human, Elf, Orc };
+    public enum Sex { Other, Male, Female };
+
 }

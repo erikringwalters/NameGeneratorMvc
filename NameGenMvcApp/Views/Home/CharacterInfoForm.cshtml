@@ -11,8 +11,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>CharacterInfoForm</title>
 </head>
-<body>
-    <center>
+<body >
+  
+     <center>
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary()
@@ -20,11 +21,15 @@
                 Race:
                 @Html.DropDownListFor(x => x.Race, new[]
      {
+            new SelectListItem() {Text = "Other",
+           Value = "Other"},
            new SelectListItem() {Text = "Human",
            Value = "Human"},
            new SelectListItem() { Text = "Elf",
-           Value = "Elf"}
-           }, "Pick your race")
+           Value = "Elf"},
+            new SelectListItem() {Text = "Orc",
+           Value = "Orc"},
+           })
             </p>
             //The code below is equivalent to the code above
 
@@ -33,11 +38,13 @@
 
                 @Html.DropDownListFor(x => x.Sex, new[]
             {
+               new SelectListItem() { Text = "Other",
+              Value = "Other" },
            new SelectListItem() {Text = "Male",
            Value = "Male"},
            new SelectListItem() { Text = "Female",
            Value = "Female"}
-           }, "Pick your sex")
+           })
             </p>
 
             <input type="submit" value="Generate Name" />
@@ -47,6 +54,7 @@
         <span>
             @Html.ValueFor(x => x.GeneratedName) </br>
         </span>
+        <p>Copyright 2017 Erik Ring-Walters</p>
     </center>
 </body>
 </html>

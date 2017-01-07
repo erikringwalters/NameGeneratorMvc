@@ -10,9 +10,9 @@ namespace NameGenMvcApp.Models
 {
     public class UserResponse
     {
-        public String Race { get; set; }
+        public Race Race { get; set; }
         public String GeneratedName { get; set; }
-        public String Sex { get; set; }
+        public Sex Sex { get; set; }
     }
 
    
