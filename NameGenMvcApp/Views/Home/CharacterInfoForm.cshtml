@@ -12,8 +12,12 @@
     <title>CharacterInfoForm</title>
 </head>
 <body >
-  
-     <center>
+    <div align="right">
+        <font color="gray">
+            Copyright 2017 Erik Ring-Walters
+        </font>
+    </div>
+    <center>
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary()
@@ -30,10 +34,7 @@
             new SelectListItem() {Text = "Orc",
            Value = "Orc"},
            })
-            </p>
-            //The code below is equivalent to the code above
 
-            <p>
                 Sex:
 
                 @Html.DropDownListFor(x => x.Sex, new[]
@@ -45,16 +46,24 @@
            new SelectListItem() { Text = "Female",
            Value = "Female"}
            })
+
+                <input type="submit" value="Generate!" />
+            </p>
+       
+
+            <p>
+          <!-- testing whitespace. -->
             </p>
 
-            <input type="submit" value="Generate Name" />
+           
 
         }
 
         <span>
             @Html.ValueFor(x => x.GeneratedName) </br>
         </span>
-        <p>Copyright 2017 Erik Ring-Walters</p>
     </center>
+  
+   
 </body>
 </html>

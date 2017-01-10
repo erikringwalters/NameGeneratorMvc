@@ -36,7 +36,7 @@ namespace NameGenMvcApp.Models
             Sex = s;
         }
         //
-        public string getGenericName(int size, Sex sex, Race race)
+        public string getName(int size, Sex sex, Race race)
         {
 
             string tempName = "";
@@ -52,26 +52,26 @@ namespace NameGenMvcApp.Models
 
             Name += firstLetter;//builds a name by piecing random characters together
             Name += randomVowel();
-            for (int i = 0; i <= DesiredSize / 2; i++)
+            for (int i = 0; i <= size / 2; i++)
             {
                 Name += organizeCheck();
             }
             return Name;
         }
         //
-        public string getGenericName(int size, Sex sex)
+        public string getName(int size, Sex sex)
         {
-            return getGenericName(size, sex, Models.Race.Other);
+            return getName(size, sex, Models.Race.Other);
         }
         //
-        public string getGenericName(int size)
+        public string getName(int size)
         {
-            return getGenericName(size, Models.Sex.Other, Models.Race.Other);
+            return getName(size, Models.Sex.Other, Models.Race.Other);
         }
         //
-        public string getGenericName(int size, Race race)
+        public string getName(int size, Race race)
         {
-            return getGenericName(size, Models.Sex.Other, race);
+            return getName(size, Models.Sex.Other, race);
         }
         //
         public char randomVowel()

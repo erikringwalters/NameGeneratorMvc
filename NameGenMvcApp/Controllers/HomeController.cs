@@ -28,10 +28,10 @@ namespace NameGenMvcApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                //userResponse.GeneratedName = "Name is generated for " + userResponse.Race + " " + userResponse.Sex;
-
+                //userResponse.GeneratedName = Name is generated for " + userResponse.Race + " " + userResponse.Sex;
+                Random randSize = new Random();
                 var nameGenerator = new NameGenerator();
-                userResponse.GeneratedName = nameGenerator.getGenericName(10);
+                userResponse.GeneratedName = nameGenerator.getName(randSize.Next(1,10));
                 return View(userResponse);
             }
             else
