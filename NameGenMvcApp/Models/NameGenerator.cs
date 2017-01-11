@@ -10,6 +10,7 @@ namespace NameGenMvcApp.Models
         enum gender { MALE, FEMALE, OTHER };
         private string Name;
         Random rand = new Random();
+        ElfNameData elfName;
         int Race;//decides style of name(orc, dragon, etc.)
         int Sex;//decides whether name is more masculine/feminine/other
         int Size;//number of characters in name
@@ -23,7 +24,7 @@ namespace NameGenMvcApp.Models
             int Race = 0;
             int Size = 0;
             int DesiredSize = 10;
-
+            elfName = new ElfNameData();
         }
         //
         public void getRace(int r)
@@ -38,18 +39,19 @@ namespace NameGenMvcApp.Models
         //
         public string getName(int size, Sex sex, Race race)
         {
-
-            string tempName = "";
+            
             char firstLetter = (char)rand.Next(65, 90);
             //65 - 90 is capital A - Z.
-            char charTemp;//for individual characters
-            string stringTemp = "";//for several characters
-
             if(sex == Models.Sex.Male)
             {
 
             }
-
+            if(race == Models.Race.Elf)
+            {
+                Name += elfName.Prefix[rand.Next(50)];
+                Name += elfName.Root[rand.Next(25)];
+                return Name;
+            }
             Name += firstLetter;//builds a name by piecing random characters together
             Name += randomVowel();
             for (int i = 0; i <= size / 2; i++)
