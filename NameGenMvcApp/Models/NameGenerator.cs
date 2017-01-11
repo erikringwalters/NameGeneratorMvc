@@ -48,8 +48,8 @@ namespace NameGenMvcApp.Models
             }
             if(race == Models.Race.Elf)
             {
-                Name += elfName.Prefix[rand.Next(50)];
-                Name += elfName.Root[rand.Next(25)];
+                Name += elfName.Prefix[rand.Next(elfName.Prefix.Length - 1)];
+                Name += elfName.Root[rand.Next(elfName.Root.Length - 1)];
                 return Name;
             }
             Name += firstLetter;//builds a name by piecing random characters together
