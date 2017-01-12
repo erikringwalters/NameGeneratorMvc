@@ -11,11 +11,15 @@ namespace NameGenMvcApp.Models
         private string Name;
         Random rand = new Random();
         ElfNameData elfName;
+        OrcNameData orcName;
         int Race;//decides style of name(orc, dragon, etc.)
         int Sex;//decides whether name is more masculine/feminine/other
         int Size;//number of characters in name
         int DesiredSize;
-        private char[] Consonant = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
+        //array of consonants
+        private char[] Consonant = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j',
+            'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
+        //array of vowel
         private char[] Vowel = new char[] { 'a', 'e', 'i', 'o', 'u' };
         //Constructor
         public NameGenerator()
@@ -25,6 +29,7 @@ namespace NameGenMvcApp.Models
             int Size = 0;
             int DesiredSize = 10;
             elfName = new ElfNameData();
+            orcName = new OrcNameData();
         }
         //
         public void getRace(int r)
@@ -42,22 +47,40 @@ namespace NameGenMvcApp.Models
             
             char firstLetter = (char)rand.Next(65, 90);
             //65 - 90 is capital A - Z.
-            if(sex == Models.Sex.Male)
-            {
-
-            }
+          
+            //If elf is specified race.
             if(race == Models.Race.Elf)
             {
                 Name += elfName.Prefix[rand.Next(elfName.Prefix.Length - 1)];
                 Name += elfName.Root[rand.Next(elfName.Root.Length - 1)];
-                return Name;
+
             }
+            //If orc is specified race.
+            if(race == Models.Race.Orc)
+            {
+                Name += orcName.Prefix[rand.Next(orcName.Prefix.Length - 1)];
+                Name += orcName.Root[rand.Next(orcName.Root.Length - 1)];
+                
+            }
+            //If other (default) is specified race.
+            if(race == Models.Race.Other)
             Name += firstLetter;//builds a name by piecing random characters together
             Name += randomVowel();
             for (int i = 0; i <= size / 2; i++)
             {
                 Name += organizeCheck();
             }
+
+            if (sex == Models.Sex.Male)
+            {
+
+            }
+
+            if (sex == Models.Sex.Female)
+            {
+
+            }
+
             return Name;
         }
         //

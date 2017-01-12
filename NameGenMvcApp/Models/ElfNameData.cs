@@ -14,7 +14,7 @@ namespace NameGenMvcApp.Models
             "Ang", "Co", "Ar", "Sil", "Ta", "Eli", "Ril", "Phy", "Usa", "Uth", "Min",
             "Cyl", "Cy", "Cas", "Min", "Pin", "Aza", "Cas", "Ere", "Hel", "Nis", "Shu", "Ul",
             "Van", "Zir" };
-        //An array of Elf name middles
+        //An array of Elf name middles/ends
         public string[] Root = new string[] {"lal", "el", "as", "dalf", "man", "mon", "nar",
             "rir", "il", "or", "al", "an", "ith", "oli", "au", "aur", "uri", "lon", "gan", "sau", "ri",
             "ur", "ul", "par", "seth", "set", "zet", "mui" };
