@@ -21,7 +21,7 @@ namespace NameGenMvcApp.Models
         //Array of orc name ends/middles
         public string[] Root = new string[]
         {
-            "ug", "bag", "ag", "mo", "mok", "kom", "rak", "har", "og", "hal", "il",
+            "ug", "bag", "ag", "om", "mok", "kom", "rak", "har", "og", "hal", "il",
             "or", "bul", "augh", "ah", "hig", "org", "gan", "rug", "hum", "og", "bub",
             "hub", "ush", "ort", "gug", "dag", "un", "ek", "lug", "lor", "ig", "log",
             "ag", "hig", "mag", "rig", "kub", "gu", "dud", "hag", "ulg", "hed", "hat",
