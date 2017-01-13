@@ -127,6 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ElfNameData.cs" />
+    <Compile Include="Models\HumanNameData.cs" />
     <Compile Include="Models\NameGenerator.cs" />
     <Compile Include="Models\OrcNameData.cs" />
     <Compile Include="Models\UserResponse.cs" />

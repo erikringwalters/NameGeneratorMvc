@@ -11,8 +11,12 @@ namespace NameGenMvcApp.Models
         Random rand = new Random();
         Random rand1 = new Random();
         int chance;
+        HumanNameData humanName;
         ElfNameData elfName;
         OrcNameData orcName;
+        
+        int randomRace;
+        int randomSex;
         private char[] Consonant = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j',
             'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
         //array of vowel
@@ -20,17 +24,30 @@ namespace NameGenMvcApp.Models
         //Constructor
         public NameGenerator()
         {
+            humanName = new HumanNameData();
             elfName = new ElfNameData();
             orcName = new OrcNameData();
+            
             chance = rand1.Next(1, 101);
+            randomRace = rand.Next(1, 3);
+            randomSex = rand.Next(1, 2);
         }
         //
         public string getName(int size, Sex sex, Race race)
         {
-
-            char firstLetter = (char)rand.Next(65, 90);
-            //65 - 90 is capital A - Z.
-
+            //***Race***
+            //If Any (default) is specified race.
+            if (race == Models.Race.Any)
+            {
+                //randomize race.
+                race = (Race)randomRace;
+            }
+            //If human is specified race
+            if(race == Models.Race.Human)
+            {
+                Name += humanName.Prefix[0];
+                //change to random later.
+            }
             //If elf is specified race.
             if (race == Models.Race.Elf)
             {
@@ -45,15 +62,13 @@ namespace NameGenMvcApp.Models
                 Name += orcName.Root[rand.Next(orcName.Root.Length - 1)];
 
             }
-            //If Any (default) is specified race.
-            else if (race == Models.Race.Any)
-            { 
-                Name += firstLetter;//builds a name by piecing random characters together
-                Name += randomVowel();
-                for (int i = 0; i <= size / 2; i++)
-                {
-                    Name += organizeCheck();
-                }
+
+            //***gender***
+            //if Any (default) is specified sex.
+            if (sex == Models.Sex.Any)
+            {
+                //randomize sex
+                sex = (Sex)randomSex;
             }
             //If male is specified sex.
             if (sex == Models.Sex.Male)
@@ -63,6 +78,7 @@ namespace NameGenMvcApp.Models
                 {
                     Name += 'o';
                 }
+                else { }//just in case of NULL exception
             }
             //if female is specified sex.
             if (sex == Models.Sex.Female)
@@ -72,23 +88,9 @@ namespace NameGenMvcApp.Models
                 {
                     Name += 'a';
                 }
+                else { }//just in case of null exception
             }
-            //if Any (default) is specified sex.
-            if(sex == Models.Sex.Any)
-            {
-                //25% chance that name will be masculine if not already ending in 'o'
-                if (chance <= 25 && Name[Name.Length - 1] != 'o')
-                {
-                    Name += 'o';
-                }
-                //25% chance that name will be feminine if not already ending in 'a'
-                else if (chance <= 50 && Name[Name.Length - 1] != 'a')
-                {
-                    Name += 'a';
-                }
-                //Otherwise, keep name as is and move on.
-            }
-
+            
             //Name is all built and ready to return.
             return Name;
         }
