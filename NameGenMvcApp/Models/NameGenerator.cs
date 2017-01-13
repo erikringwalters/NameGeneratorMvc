@@ -7,18 +7,12 @@ namespace NameGenMvcApp.Models
 {
     public class NameGenerator
     {
-        enum gender { MALE, FEMALE, OTHER };
         private string Name;
         Random rand = new Random();
         Random rand1 = new Random();
         int chance;
         ElfNameData elfName;
         OrcNameData orcName;
-        int Race;//decides style of name(orc, dragon, etc.)
-        int Sex;//decides whether name is more masculine/feminine/other
-        int Size;//number of characters in name
-        int DesiredSize;
-        //array of consonants
         private char[] Consonant = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j',
             'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
         //array of vowel
@@ -29,16 +23,6 @@ namespace NameGenMvcApp.Models
             elfName = new ElfNameData();
             orcName = new OrcNameData();
             chance = rand1.Next(1, 101);
-        }
-        //
-        public void getRace(int r)
-        {
-            Race = r;
-        }
-        //
-        public void getSex(int s)
-        {
-            Sex = s;
         }
         //
         public string getName(int size, Sex sex, Race race)
@@ -61,8 +45,8 @@ namespace NameGenMvcApp.Models
                 Name += orcName.Root[rand.Next(orcName.Root.Length - 1)];
 
             }
-            //If other (default) is specified race.
-            else if (race == Models.Race.Other)
+            //If Any (default) is specified race.
+            else if (race == Models.Race.Any)
             { 
                 Name += firstLetter;//builds a name by piecing random characters together
                 Name += randomVowel();
@@ -89,8 +73,8 @@ namespace NameGenMvcApp.Models
                     Name += 'a';
                 }
             }
-            //if other (default is specified sex.
-            if(sex == Models.Sex.Other)
+            //if Any (default) is specified sex.
+            if(sex == Models.Sex.Any)
             {
                 //25% chance that name will be masculine if not already ending in 'o'
                 if (chance <= 25 && Name[Name.Length - 1] != 'o')
@@ -102,7 +86,7 @@ namespace NameGenMvcApp.Models
                 {
                     Name += 'a';
                 }
-                //otherwise, keep name as is and move on.
+                //Otherwise, keep name as is and move on.
             }
 
             //Name is all built and ready to return.
@@ -111,17 +95,17 @@ namespace NameGenMvcApp.Models
         //
         public string getName(int size, Sex sex)
         {
-            return getName(size, sex, Models.Race.Other);
+            return getName(size, sex, Models.Race.Any);
         }
         //
         public string getName(int size)
         {
-            return getName(size, Models.Sex.Other, Models.Race.Other);
+            return getName(size, Models.Sex.Any, Models.Race.Any);
         }
         //
         public string getName(int size, Race race)
         {
-            return getName(size, Models.Sex.Other, race);
+            return getName(size, Models.Sex.Any, race);
         }
         //
         public char randomVowel()
@@ -186,7 +170,7 @@ namespace NameGenMvcApp.Models
         }
         //
     }
-    public enum Race { Other, Human, Elf, Orc };
-    public enum Sex { Other, Male, Female };
+    public enum Race { Any, Human, Elf, Orc };
+    public enum Sex { Any, Male, Female };
 
 }
