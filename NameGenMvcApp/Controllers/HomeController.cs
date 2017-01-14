@@ -20,7 +20,10 @@ namespace NameGenMvcApp.Controllers
         [HttpGet]
         public ViewResult CharacterInfoForm()
         {
-            return View(new UserResponse());
+            var model = new UserResponse();
+            var nameGenerator = new NameGenerator();
+            model.GeneratedName = nameGenerator.getName(0, model.Sex, model.Race);
+            return View(model);
         }
 
         [HttpPost]
