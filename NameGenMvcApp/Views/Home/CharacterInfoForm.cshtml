@@ -22,13 +22,18 @@
         </font>
     </div>
     <center>
-        <div><font color="maroon">Fantasy Name Generator</font></div>
+        
+        <h1><font color="goldenrod"><b>Fantasy Name Generator</b></font></h1>
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary()
             <p>
-                Race:
-                @Html.DropDownListFor(x => x.Race, new[]
+                <font color="green">
+                    <b>
+                        Race:
+                    </b>
+                    </font>
+                    @Html.DropDownListFor(x => x.Race, new[]
 {
             new SelectListItem() {Text = "Any",
            Value = "Any"},
@@ -39,10 +44,12 @@
             new SelectListItem() {Text = "Orc",
            Value = "Orc"},
            })
-
-                Sex:
-
-                @Html.DropDownListFor(x => x.Sex, new[]
+                <font color="firebrick">
+                    <b>
+                    Sex:
+                    </b>
+                    </font>
+                    @Html.DropDownListFor(x => x.Sex, new[]
  {
                new SelectListItem() { Text = "Any",
               Value = "Any" },
@@ -52,16 +59,16 @@
            Value = "Female"}
            })
 
-                <input type="submit" value="Generate!" />
-            </p>
+                    <input type="submit" value="Generate!" />
+</p>
 
 
             <p>
           <!-- testing whitespace. -->
             </p>
             @*@Html.TextBoxFor(model => model.GeneratedName, new { style="width: 30 px;"});*@
-           
-            <input type="text" value="@Model.GeneratedName" style="width: 30 px;"/>
+
+            <b> <input type="text" value="@Model.GeneratedName" style="width: 300 px;" /> </b>
         }
 
         <span>
