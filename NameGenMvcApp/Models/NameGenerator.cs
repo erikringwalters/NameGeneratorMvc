@@ -45,8 +45,8 @@ namespace NameGenMvcApp.Models
             //If human is specified race
             if(race == Models.Race.Human)
             {
-                Name += humanName.Prefix[0];
-                //change to random later.
+                Name += humanName.Prefix[rand.Next(humanName.Prefix.Length - 1)];
+                Name += humanName.Root[rand.Next(humanName.Root.Length - 1)];
             }
             //If elf is specified race.
             if (race == Models.Race.Elf)

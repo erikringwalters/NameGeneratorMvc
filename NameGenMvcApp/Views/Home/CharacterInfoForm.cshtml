@@ -28,7 +28,7 @@
         {
             @Html.ValidationSummary()
             <p>
-                <font color="green">
+                <font color="mediumblue">
                     <b>
                         Race:
                     </b>
@@ -58,8 +58,12 @@
            new SelectListItem() { Text = "Female",
            Value = "Female"}
            })
-
-                   <b> <input type="submit" value="Generate!" /> </b>
+                @*old button*@
+                    @*<b> <input type="submit" value="Generate!" /> </b>*@
+                
+                @*New Button*@
+                <button type="submit" class="btn btn-success">
+                   Generate!</button>
 </p>
 
 
