@@ -16,6 +16,10 @@
 </head>
 
 <body >
+    <style>
+    body{
+        background-color: Black;
+    }</style>
     <div align="right">
         <font color="gray">
             Copyright 2017 Erik Ring-Walters
@@ -28,7 +32,7 @@
         {
             @Html.ValidationSummary()
             <p>
-                <font color="mediumblue">
+                <font color="limegreen">
                     <b>
                         Race:
                     </b>
@@ -44,7 +48,7 @@
             new SelectListItem() {Text = "Orc",
            Value = "Orc"},
            })
-                <font color="firebrick">
+                <font color="indianred">
                     <b>
                     Sex:
                     </b>
@@ -62,7 +66,7 @@
                     @*<b> <input type="submit" value="Generate!" /> </b>*@
                 
                 @*New Button*@
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-primary">
                    Generate!</button>
 </p>
 

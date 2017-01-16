@@ -29,7 +29,7 @@ namespace NameGenMvcApp.Models
             orcName = new OrcNameData();
             
             chance = rand1.Next(1, 101);
-            randomRace = rand.Next(1, 3);
+            randomRace = rand.Next(1, 4);
             randomSex = rand.Next(1, 2);
         }
         //

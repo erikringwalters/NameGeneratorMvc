@@ -8,7 +8,7 @@ namespace NameGenMvcApp.Models
     public class HumanNameData
     {
         //Array of Human prefixes
-        public string[] Prefix = new string[] { "Geo ", "Har", "Oud", "Ham", "Arn", "Ard", "Sym",
+        public string[] Prefix = new string[] { "Geo", "Har", "Oud", "Ham", "Arn", "Ard", "Sym",
             "Rich", "Chri", "Sew", "Al", "Ger", "Jan", "Oue", "Jos", "Gab", "Joc", "Theo", "Thor", "Ash",
             "Ben", "Tom", "Sal", "Daf", "Euv", "Hen", "Aud", "Rand", "Jac", "Ger", "Hur", "Guil", "Adi", "Dra",
             "Cla", "Bar", "Jer", "Rol", "Seg", "Eve", "War" };
