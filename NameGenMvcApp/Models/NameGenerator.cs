@@ -14,7 +14,7 @@ namespace NameGenMvcApp.Models
         HumanNameData humanName;
         ElfNameData elfName;
         OrcNameData orcName;
-        
+        DwarfNameData dwarfName;
         int randomRace;
         int randomSex;
         private char[] Consonant = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j',
@@ -27,9 +27,10 @@ namespace NameGenMvcApp.Models
             humanName = new HumanNameData();
             elfName = new ElfNameData();
             orcName = new OrcNameData();
-            
+            dwarfName = new DwarfNameData();
+
             chance = rand1.Next(1, 101);
-            randomRace = rand.Next(1, 4);
+            randomRace = rand.Next(1, 5);
             randomSex = rand.Next(1, 2);
         }
         //
@@ -62,7 +63,12 @@ namespace NameGenMvcApp.Models
                 Name += orcName.Root[rand.Next(orcName.Root.Length - 1)];
 
             }
-
+            //If dwarf is specified race/
+            if(race == Models.Race.Dwarf)
+            {
+                Name += dwarfName.Prefix[rand.Next(dwarfName.Prefix.Length - 1)];
+                Name += dwarfName.Root[rand.Next(dwarfName.Root.Length - 1)];
+            }
             //***gender***
             //if Any (default) is specified sex.
             if (sex == Models.Sex.Any)
@@ -172,7 +178,7 @@ namespace NameGenMvcApp.Models
         }
         //
     }
-    public enum Race { Any, Human, Elf, Orc };
+    public enum Race { Any, Human, Elf, Orc, Dwarf };
     public enum Sex { Any, Male, Female };
 
 }

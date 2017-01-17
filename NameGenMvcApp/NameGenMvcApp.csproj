@@ -134,6 +134,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DwarfNameData.cs" />
     <Compile Include="Models\ElfNameData.cs" />
     <Compile Include="Models\HumanNameData.cs" />
     <Compile Include="Models\NameGenerator.cs" />
@@ -157,6 +158,7 @@
     <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\EriksNameGenerator - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\EriksNameGenerator1 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
