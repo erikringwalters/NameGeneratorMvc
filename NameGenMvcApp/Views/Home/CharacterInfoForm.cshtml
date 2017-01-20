@@ -37,7 +37,6 @@
             margin-left: 20px;
             margin-top:10px;
             margin-bottom:10px;
-
         }
 
         span.name {
@@ -59,7 +58,7 @@
     </div>
     <center>
 
-        <h1><font color="#ffbf00"><b>Fantasy Name Generator</b></font></h1>
+        <h1><font color="#ECB600"><b>Fantasy Name Generator</b></font></h1>
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary()
@@ -89,22 +88,12 @@
            new SelectListItem() { Text = "Female",
            Value = "Female"}
            })
-                @*old button*@
-                @*<b> <input type="submit" value="Generate!" /> </b>*@
-
-                @*New Button*@
-                @*<span class="genbtn">*@
+             
                 <button type="submit" class="button1">
                     Generate!
                 </button>
-                @*</span>*@
+              
             </p>
-
-
-            <p>
-                <!-- testing whitespace. -->
-            </p>
-            @*@Html.TextBoxFor(model => model.GeneratedName, new { style="width: 30 px;"});*@
 
             <span class="name"><b> <input type="text" value="@Model.GeneratedName" style="text-align:center;" /> </b></span>
         }

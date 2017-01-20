@@ -22,7 +22,7 @@ namespace NameGenMvcApp.Controllers
         {
             var model = new UserResponse();
             var nameGenerator = new NameGenerator();
-            model.GeneratedName = nameGenerator.getName(0, model.Sex, model.Race);
+            //model.GeneratedName = nameGenerator.getName(0, model.Sex, model.Race);
             return View(model);
         }
 
