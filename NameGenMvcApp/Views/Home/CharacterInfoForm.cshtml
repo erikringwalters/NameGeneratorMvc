@@ -20,14 +20,29 @@
         body {
             background-color: Black;
         }
-
+        p {
+            padding: 30px;
+        }
+        h1 {
+            color: ghostwhite;
+            font-weight: 300
+        }
         span.dd-headings {
             font-weight: 500;
             font-size: medium;
             color: WHITE;
             margin: 20px 5px 10px 15px;
         }
-
+        dropdown {
+            background-color: black;
+            font-weight: bold;
+            opacity: 1;
+            border: 2px solid white;
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
         .button1 {
             background-color: black;
             color: white;
@@ -58,44 +73,64 @@
     </div>
     <center>
 
-        <h1><font color="#ECB600"><b>Fantasy Name Generator</b></font></h1>
+        <h1>Fantasy Name Generator</h1>
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary()
             <p>
                 <span class="dd-headings"> Race:</span>
-                @Html.DropDownListFor(x => x.Race, new[]
+                
+                
+                    @Html.DropDownListFor(x => x.Race, new[]
 {
-           new SelectListItem() {Text = "Any",
+           new SelectListItem()
+        {
+            Text = "Any",
            Value = "Any"},
-           new SelectListItem() {Text = "Human",
+           new SelectListItem()
+        {
+            Text = "Human",
            Value = "Human"},
-           new SelectListItem() { Text = "Elf",
+           new SelectListItem()
+        {
+            Text = "Elf",
            Value = "Elf"},
-            new SelectListItem() {Text = "Orc",
+            new SelectListItem()
+        {
+            Text = "Orc",
            Value = "Orc" },
-            new SelectListItem() {Text = "Dwarf",
+            new SelectListItem()
+        {
+            Text = "Dwarf",
            Value = "Dwarf"},
-           })
+           }
+            , new { @style="dropdown" } )
+           
                 <span class="dd-headings">Sex:</span>
 
                 @Html.DropDownListFor(x => x.Sex, new[]
  {
-           new SelectListItem() { Text = "Any",
+           new SelectListItem()
+    {
+        Text = "Any",
            Value = "Any" },
-           new SelectListItem() {Text = "Male",
+           new SelectListItem()
+    {
+        Text = "Male",
            Value = "Male"},
-           new SelectListItem() { Text = "Female",
+           new SelectListItem()
+    {
+        Text = "Female",
            Value = "Female"}
-           })
-             
-                <button type="submit" class="button1">
+}, new { @style="dropdown" })
+
+                <button type = "submit" class="button1">
                     Generate!
                 </button>
-              
+
             </p>
 
-            <span class="name"><b> <input type="text" value="@Model.GeneratedName" style="text-align:center;" /> </b></span>
+            <span class="name"><b> <input type = "text" value="@Model.GeneratedName" style="text-align:center;" /> </b></span>
         }
 
         <span>
