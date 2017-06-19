@@ -24,7 +24,7 @@
             padding: 30px;
         }
         h1 {
-            color: ghostwhite;
+            color: #F8F8FF; @*GHOSTWHITE*@
             font-weight: 300
         }
         span.dd-headings {
@@ -33,15 +33,15 @@
             color: WHITE;
             margin: 20px 5px 10px 15px;
         }
-        dropdown {
+        .dropdown {
+            color: white;
             background-color: black;
             font-weight: bold;
             opacity: 1;
             border: 2px solid white;
-            margin-left: 20px;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin-right: 20px;
             cursor: pointer;
+            height: 30px;
         }
         .button1 {
             background-color: black;
@@ -52,8 +52,13 @@
             margin-left: 20px;
             margin-top:10px;
             margin-bottom:10px;
+            height:30px;
         }
-
+        .icon {
+            width:32px; 
+            height:32px;
+            padding: 5px;
+        }
         span.name {
             font-size: large;
         }
@@ -78,9 +83,10 @@
         {
             @Html.ValidationSummary()
             <p>
-                <span class="dd-headings"> Race:</span>
-                
-                
+                <div class="row">
+                    <span class="dd-headings"> Race:</span>
+
+
                     @Html.DropDownListFor(x => x.Race, new[]
 {
            new SelectListItem()
@@ -104,11 +110,11 @@
             Text = "Dwarf",
            Value = "Dwarf"},
            }
-            , new { @style="dropdown" } )
-           
-                <span class="dd-headings">Sex:</span>
+            , new { @class = "dropdown" })
 
-                @Html.DropDownListFor(x => x.Sex, new[]
+                    <span class="dd-headings">Sex:</span>
+
+                    @Html.DropDownListFor(x => x.Sex, new[]
  {
            new SelectListItem()
     {
@@ -122,15 +128,25 @@
     {
         Text = "Female",
            Value = "Female"}
-}, new { @style="dropdown" })
+}, new { @class = "dropdown" })
 
-                <button type = "submit" class="button1">
-                    Generate!
-                </button>
-
+                    <button type="submit" class="button1">
+                        Generate!
+                    </button>
+                </div>
             </p>
 
-            <span class="name"><b> <input type = "text" value="@Model.GeneratedName" style="text-align:center;" /> </b></span>
+            <div class="row">
+                <span class="name">
+                <b>
+                    <input type="text" value="@Model.GeneratedName" style="text-align:center;" /> 
+                    @*
+    <img src="http://www.iconsdb.com/icons/preview/color/F8F8FF/favorite-4-xxl.png" class="icon" alt="LIKE" title="I like this name"/>
+    <img src="http://www.iconsdb.com/icons/preview/color/F8F8FF/trash-9-xxl.png" class="icon" alt="DISLIKE" title="I don't like this name"/>
+                    *@
+                    </b>
+                </span>
+            </div>
         }
 
         <span>
